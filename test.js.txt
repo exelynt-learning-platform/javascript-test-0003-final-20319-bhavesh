@@ -1,0 +1,33 @@
+// JavaScript program to print the alternating number pattern
+
+function printPattern(rows) {
+    for (let i = 1; i <= rows; i++) {
+        let line = '';
+        
+        for (let j = 1; j <= i; j++) {
+            // Determine if current position should be 0 or 1
+            // If row is odd: starts with 1, alternates (1, 0, 1, 0, ...)
+            // If row is even: starts with 0, alternates (0, 1, 0, 1, ...)
+            
+            if (i % 2 === 1) {
+                // Odd row: starts with 1
+                // Position 1 -> 1, Position 2 -> 0, Position 3 -> 1, etc.
+                line += (j % 2 === 1) ? '1' : '0';
+            } else {
+                // Even row: starts with 0
+                // Position 1 -> 0, Position 2 -> 1, Position 3 -> 0, etc.
+                line += (j % 2 === 1) ? '0' : '1';
+            }
+            
+            // Add space between numbers (but not after the last number)
+            if (j < i) {
+                line += ' ';
+            }
+        }
+        
+        console.log(line);
+    }
+}
+
+// Print the pattern with 6 rows
+printPattern(6);
